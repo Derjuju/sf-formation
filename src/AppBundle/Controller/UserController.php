@@ -23,7 +23,6 @@ class UserController extends Controller
         $form = $this->createForm(new LoginType());
         $form->add('login','submit');
         
-        //if($exception = $this->get('session')->get('_security.last_error'))
         if($exception = $request->getSession()->get('_security.last_error')){
             $request->getSession()->remove('_security.last_error');
         }
@@ -47,15 +46,12 @@ class UserController extends Controller
             $secureRandom = $this->get('security.secure_random');
             $player->generatePassword($encoder, $secureRandom);
             
-            //$player->setSalt('toto');
-
             $em = $this->get('doctrine')->getManager();            
             $em->persist($player);
             $em->flush();
             
             // Redirection avec Message de confirmation
             $this->addFlash('success', 'Your account has been successfully created.');
-            //return $this->redirect($this->generateUrl('game_play'));            
             return $this->redirectToRoute('game_play');
             
         }
@@ -89,9 +85,6 @@ class UserController extends Controller
         return $this->render('User/players.html.twig', [
             'users' => $playerRepository->getLastRegisteredPlayer(),
         ]);
-        /*return $this->render('User/players.html.twig', [
-            'users' => $playerRepository->findById(1),
-        ]);*/
     }
     
     

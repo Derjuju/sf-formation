@@ -2,10 +2,6 @@
 
 namespace AppBundle\Controller;
 
-//use AppBundle\Game\GameContext;
-//use AppBundle\Game\Loader\TextFileLoader;
-//use AppBundle\Game\Loader\XmlFileLoader;
-//use AppBundle\Game\WordList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -15,20 +11,7 @@ use Symfony\Component\VarDumper\VarDumper;
 /** @Route("/game") */
 class GameController extends Controller
 {
-    /*private function getContext()
-    {
-        return new GameContext($this->get('session'));
-    }*/
-
-    /*private function getWordList()
-    {
-        $wordList = new WordList();
-        $wordList->addLoader('txt', new TextFileLoader());
-        $wordList->addLoader('xml', new XmlFileLoader());
-        $wordList->loadDictionaries($this->container->getParameter('dictionaries'));
-
-        return $wordList;
-    }*/
+    
 
     /**
      * @Route("/reset", name="game_reset")
@@ -36,8 +19,6 @@ class GameController extends Controller
      */
     public function resetAction()
     {
-        //$wordList = $this->getWordList();        
-        //$context  = $this->getContext();
         $wordList = $this->container->get('app.word_list');
         $context = $this->container->get('app.game_context');
 
@@ -54,7 +35,6 @@ class GameController extends Controller
      */
     public function playAction()
     {
-        //$context = $this->getContext();
         $context = $this->container->get('app.game_context');
         if (!$game = $context->loadGame()) {
             return $this->forward('AppBundle:Game:reset');
@@ -69,7 +49,6 @@ class GameController extends Controller
      */
     public function winAction()
     {
-        //$context = $this->getContext();
         $context = $this->container->get('app.game_context');
         if (!$game = $context->loadGame()) {
             throw $this->createNotFoundException('No existing Game context found.');
@@ -90,7 +69,6 @@ class GameController extends Controller
      */
     public function failAction()
     {
-        //$context = $this->getContext();
         $context = $this->container->get('app.game_context');
         if (!$game = $context->loadGame()) {
             throw $this->createNotFoundException('No existing Game context found.');
@@ -117,7 +95,6 @@ class GameController extends Controller
      */
     public function playLetterAction($letter)
     {
-        //$context = $this->getContext();
         $context = $this->container->get('app.game_context');
         if (!$game = $context->loadGame()) {
             throw $this->createNotFoundException('No existing Game context found.');
@@ -139,7 +116,6 @@ class GameController extends Controller
      */
     public function playWordAction(Request $request)
     {
-        //$context = $this->getContext();
         $context = $this->container->get('app.game_context');
         if (!$game = $context->loadGame()) {
             throw $this->createNotFoundException('No existing Game context found.');
