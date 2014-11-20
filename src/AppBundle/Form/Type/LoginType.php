@@ -17,6 +17,6 @@ class LoginType extends AbstractType
 
     public function getName()
     {
-        return 'login';
+        return ''; // Doit être laissé vide pour le formulaire de connexion
     }
 } 

@@ -23,6 +23,3 @@ security:
             form_login:
                 check_path: login_check
                 login_path: login
-            logout:
-                path:   /logout
-                target: /
