@@ -8,6 +8,10 @@
 
     <h2>Access your player account</h2>
 
+    {% if exception %}
+        <div class='alert alert-danger'>{{exception.message}}</div>
+    {% endif %}
+    
     {{form(login_form, {action: path('login_check')})}}
     
     {#

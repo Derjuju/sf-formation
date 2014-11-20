@@ -22,7 +22,13 @@ class UserController extends Controller
     {
         $form = $this->createForm(new LoginType());
         $form->add('login','submit');
-        return $this->render('User/login.html.twig', ['login_form' => $form->createView()]);
+        
+        //if($exception = $this->get('session')->get('_security.last_error'))
+        if($exception = $request->getSession()->get('_security.last_error')){
+            $request->getSession()->remove('_security.last_error');
+        }
+        
+        return $this->render('User/login.html.twig', ['login_form' => $form->createView(), 'exception' => $exception]);
     }
 
     /**
