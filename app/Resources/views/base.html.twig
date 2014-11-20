@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title 'My Application' %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+    
+        <ul>
+            <li>
+                <a href="{{ path('about_us') }}">
+                    {{- 'menu.about'|trans -}}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('profile', { 'name': 'hugo' }) }}">
+                    {{- 'menu.profile'|trans -}}
+                </a>
+            </li>
+        </ul>
+    
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

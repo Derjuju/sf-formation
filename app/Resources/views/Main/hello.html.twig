@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain "user" %}
+
+{% block title -%}
+    {{ 'user.profile.title'|trans({ '%name%': name|capitalize }) }}
+{%- endblock %}
+
+{% block body %}
+
+    <h1>{{ 'user.profile.subtitle'|trans }}</h1>
+
+    <p>
+        {{ 'user.profile.greetings'|trans({ '%name%': name|capitalize }) }}
+    </p>
+
+    <p>
+        {{ 'user.profile.ip'|trans({ '%ip%': app.request.getClientIp() }) }}
+    </p>
+{% endblock body %}

@@ -1,0 +1,11 @@
+Bonjour,
+
+Une nouvelle demande de contact ci-dessous:
+
+Nom : {{ contact.fullName }}
+Email : {{ contact.emailAddress }}
+Société : {{ contact.company|default('n/a') }}
+Téléphone : {{ contact.phoneNumber|default('n/a') }}
+Sujet: {{ contact.subject }}
+
+{{ contact.message }}

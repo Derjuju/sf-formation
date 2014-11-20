@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+
+{% form_theme registration_form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block title 'Login' %}
+
+{% block body %}
+
+    <h2>Access your player account</h2>
+
+    {{form(login_form, {action: path('login_check')})}}
+    
+    {#
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="my_login" value="" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="my_secret" />
+
+        <button type="submit">login</button>
+    </form>
+    #}
+    
+{% endblock %}

@@ -1,0 +1,23 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: 8889
+    database_name: symfony_formation
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: fr
+    secret: ThisTokenIsNotSoSecretChangeIt
+    debug_toolbar: true
+    debug_redirects: true
+    use_assetic_controller: true
+    www_hostname: www.symfony-training.local
+    admin_hostname: admin.symfony-training.local
+    word_length: 8
+    dictionaries:
+        - '%kernel.root_dir%/Resources/data/words.txt'
+        - '%kernel.root_dir%/Resources/data/words.xml'

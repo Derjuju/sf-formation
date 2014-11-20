@@ -1,0 +1,28 @@
+security:
+    encoders:
+        AppBundle\Entity\Player: 
+            algorithm:  sha512
+            encode_as_base64:   true
+            iterations: 5000
+            
+    providers:
+        in_memory:
+            memory: ~
+        my_database_provider:
+            entity: { class: AppBundle\Entity\Player, property: username }
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        app:
+            pattern:   ^/
+            anonymous: ~
+            provider:   my_database_provider
+            form_login:
+                check_path: login_check
+                login_path: login
+            logout:
+                path:   /logout
+                target: /

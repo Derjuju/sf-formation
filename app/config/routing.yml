@@ -1,0 +1,9 @@
+homepage:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: login
+
+app:
+    resource: "@AppBundle/Controller"
+    type: annotation
