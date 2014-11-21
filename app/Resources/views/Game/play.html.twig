@@ -20,6 +20,10 @@
 
     <br class="clearfix" />
 
+    {% if is_granted('ROLE_ADMIN') %}
+    <p>The word to guess is : <strong>{{app.session.get('hangman').word}}</strong></p>
+    {% endif %}
+    
     <p class="attempts">
         <a href="{{ path('game_reset') }}">Reset the game</a>
     </p>

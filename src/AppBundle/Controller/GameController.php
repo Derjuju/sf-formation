@@ -8,7 +8,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\VarDumper\VarDumper;
 
-/** @Route("/game") */
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
+/** @Route("/game")
+ *  @Security("is_granted('ROLE_USER')")
+ */
 class GameController extends Controller
 {
     

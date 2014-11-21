@@ -40,9 +40,16 @@ class ContactController extends Controller
             return $this->redirect($this->generateUrl('contact_us'));
         }
 
-        return $this->render('Contact/contact.html.twig', [
+        $response =  $this->render('Contact/contact.html.twig', [
             'form' => $form->createView(),
         ]);
+        
+        sleep(5);
+        
+        $response->setMaxAge(10);
+        $response->setSharedMaxAge(40);
+        
+        return $response;
     }
 
 }
